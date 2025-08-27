@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pasi Thulir Design System - World-class professional design with Chennai authenticity */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Professional dark theme with enhanced contrast */
+    --background: 222 23% 6%;
+    --foreground: 180 100% 98%;
+
+    --card: 222 23% 8%;
+    --card-foreground: 180 100% 98%;
+
+    --popover: 222 23% 8%;
+    --popover-foreground: 180 100% 98%;
+
+    /* Premium aqua colors with better accessibility */
+    --primary: 185 84% 55%;
+    --primary-foreground: 222 23% 6%;
+    --primary-glow: 185 100% 75%;
+    --primary-dark: 185 84% 35%;
+
+    /* Enhanced secondary colors */
+    --secondary: 222 23% 12%;
+    --secondary-foreground: 180 100% 98%;
+
+    --muted: 222 23% 10%;
+    --muted-foreground: 180 30% 75%;
+
+    /* Professional accent system */
+    --accent: 185 70% 50%;
+    --accent-foreground: 222 23% 6%;
+    --accent-light: 185 60% 65%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 180 100% 98%;
+
+    --border: 222 23% 18%;
+    --input: 222 23% 12%;
+    --ring: 185 84% 55%;
+
+    --radius: 0.875rem;
+
+    /* Enhanced Pasi Thulir brand colors */
+    --aqua: 185 84% 55%;
+    --aqua-light: 185 100% 75%;
+    --aqua-dark: 185 84% 35%;
+    --dark-bg: 222 23% 6%;
+    --dark-card: 222 23% 8%;
+    --dark-surface: 222 23% 12%;
+
+    /* Professional gradient system */
+    --gradient-aqua: linear-gradient(135deg, hsl(var(--aqua)), hsl(var(--aqua-light)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--aqua) / 0.9), hsl(var(--aqua-light) / 0.7));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--dark-card)), hsl(var(--dark-surface)));
+    --gradient-premium: linear-gradient(135deg, hsl(var(--aqua-dark)), hsl(var(--aqua)), hsl(var(--aqua-light)));
+    
+    /* Enhanced shadows and lighting */
+    --shadow-aqua: 0 4px 32px hsl(var(--aqua) / 0.25);
+    --shadow-aqua-strong: 0 8px 48px hsl(var(--aqua) / 0.4);
+    --shadow-premium: 0 12px 60px hsl(var(--aqua) / 0.3);
+    --glow-aqua: 0 0 32px hsl(var(--aqua) / 0.6);
+    --shadow-elevation: 0 2px 12px hsl(222 23% 4% / 0.8);
+
+    /* Professional animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --bounce-gentle: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  /* Professional focus styles */
+  .focus-visible\:ring-2:focus-visible {
+    @apply ring-2 ring-aqua ring-offset-2 ring-offset-background;
+  }
+
+  /* Enhanced scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-surface;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-aqua/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-aqua/50;
+  }
+}
