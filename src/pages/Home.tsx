@@ -72,10 +72,15 @@ const Home = () => {
         {/* Enhanced Background */}
         <div className="absolute inset-0 z-0">
           <img 
-            src={heroImage} 
-            alt="Food donation platform connecting Chennai communities"
-            className="w-full h-full object-cover scale-105"
-          />
+  src={heroImage} 
+  alt="Food donation platform connecting Chennai communities"
+  className="
+    w-full h-full object-cover scale-105
+    object-[60%_center] 
+    sm:object-center
+  "
+/>
+
           <div className="absolute inset-0 bg-gradient-to-r from-dark-bg via-dark-bg/95 to-dark-bg/80" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark-bg/40" />
         </div>
@@ -172,7 +177,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-2 gap-4">
             {impactMetrics.map((metric, index) => (
               <Card key={index} className="bg-dark-card/50 backdrop-blur-md border-border/30 text-center group hover:shadow-premium transition-all duration-500">
                 <CardContent className="p-8">
@@ -200,7 +205,8 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+
             {features.map((feature, index) => (
               <div key={index} className="group">
                 <Card className="bg-dark-card border-border hover:border-aqua/50 transition-all duration-500 hover:shadow-premium overflow-hidden">
@@ -244,7 +250,8 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="bg-dark-card border-border hover:shadow-glow transition-all duration-300 group">
                 <CardContent className="p-8">
