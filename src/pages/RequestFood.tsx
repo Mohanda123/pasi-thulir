@@ -7,6 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Users, Heart, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase"; // adjust path if needed
+
 
 const RequestFood = () => {
   const { toast } = useToast();
@@ -24,12 +27,20 @@ const RequestFood = () => {
     description: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    await addDoc(collection(db, "requests"), {
+      ...formData,
+      createdAt: serverTimestamp(),
+    });
+
     toast({
       title: "Request Submitted! 🙏",
-      description: "Your food request has been registered. We'll notify you when food becomes available nearby.",
+      description: "Your food request has been registered successfully.",
     });
+
     // Reset form
     setFormData({
       organizationName: "",
@@ -44,7 +55,17 @@ const RequestFood = () => {
       dietaryRestrictions: "",
       description: "",
     });
-  };
+
+  } catch (error) {
+    console.error(error);
+    toast({
+      title: "Error",
+      description: "Something went wrong!",
+      variant: "destructive",
+    });
+  }
+};
+
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));

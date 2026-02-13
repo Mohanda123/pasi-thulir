@@ -7,6 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Clock, Phone, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { db } from "@/firebase";
+import { collection, addDoc } from "firebase/firestore";
+
 
 const DonateFood = () => {
   const { toast } = useToast();
@@ -22,13 +25,28 @@ const DonateFood = () => {
     description: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    await addDoc(collection(db, "donations"), {
+      donorName: formData.donorName,
+      organizationType: formData.organizationType,
+      contactNumber: formData.contactNumber,
+      email: formData.email,
+      address: formData.address,
+      foodType: formData.foodType,
+      quantity: formData.quantity,
+      expiryTime: formData.expiryTime,
+      description: formData.description,
+      createdAt: new Date(),
+    });
+
     toast({
       title: "Donation Submitted! 🙏",
-      description: "Thank you for your generous donation. We'll connect you with recipients nearby.",
+      description: "Stored successfully in database.",
     });
-    // Reset form
+
     setFormData({
       donorName: "",
       organizationType: "",
@@ -40,7 +58,16 @@ const DonateFood = () => {
       expiryTime: "",
       description: "",
     });
-  };
+
+  } catch (error) {
+    console.error(error);
+    toast({
+      title: "Error",
+      description: "Something went wrong!",
+    });
+  }
+};
+
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
