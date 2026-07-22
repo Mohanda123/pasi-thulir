@@ -141,6 +141,9 @@ const Home = () => {
                   <Link to="/request">Request Food Support</Link>
                 </Button>
               </div>
+              <p className="text-aqua mt-4">
+                Founded by Mohan M to fight hunger and reduce food waste.
+              </p>
             </div>
 
             {/* Right Content - Stats Grid */}

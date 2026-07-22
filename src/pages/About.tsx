@@ -26,6 +26,12 @@ const About = () => {
       description: "Creating a sustainable ecosystem for food distribution and waste reduction."
     }
   ];
+  const founder = {
+  name: "Mohan M",
+  role: "Founder & Visionary",
+  description:
+    "Mohan M founded Pasithulir with a simple mission: no one should go hungry while good food goes to waste. Through technology and community support, he aims to build a hunger-free Tamil Nadu."
+};
 
   const stats = [
     { number: "1000+", label: "Meals Donated", description: "Fresh meals delivered to those in need" },
@@ -121,6 +127,42 @@ const About = () => {
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* Founder Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Meet The <span className="text-aqua">Founder</span>
+          </h2>
+
+          <Card className="bg-dark-card border-border max-w-4xl mx-auto">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-2xl font-bold text-foreground mb-2">
+                Mohan M
+              </h3>
+
+              <p className="text-aqua font-semibold mb-4">
+                Founder & Visionary – Pasithulir
+              </p>
+
+              <p className="text-muted-foreground leading-relaxed">
+                Mohan M founded Pasithulir with a vision to reduce hunger
+                and food waste across Chennai and Tamil Nadu. He believes
+                that every surplus meal can become hope for someone in need.
+                Through Pasithulir, he aims to connect donors, volunteers,
+                NGOs, and communities to create a hunger-free future.
+              </p>
+
+              <div className="mt-6">
+                <Link
+                  to="/founder"
+                  className="text-aqua font-semibold hover:underline"
+                >
+                  Read Full Founder Story →
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* How It Works */}
