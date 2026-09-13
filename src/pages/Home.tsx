@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Heart, Users, MapPin, Clock, Leaf, ArrowRight, Shield, Star, TrendingUp } from "lucide-react";
+import { X, AlertTriangle } from "lucide-react";
+import { useState } from "react";
 import heroImage from "@/assets/hero-image.jpg";
 import chennaiCommunity from "@/assets/chennai-community.jpg";
-import donorChef from "@/assets/donor-chef.jpg";
+import donorChef from "@/assets/donor-chef.jpg"
 import childrenReceiving from "@/assets/children-receiving.jpg";
 import volunteerTeam from "@/assets/volunteer-team.jpg";
 
@@ -43,6 +45,8 @@ const Home = () => {
       image: childrenReceiving,
     },
   ];
+ 
+const [showNotice, setShowNotice] = useState(true);
 
   const testimonials = [
     {
@@ -67,6 +71,28 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {showNotice && (
+  <div className="fixed top-4 right-4 z-[9999] w-[380px] max-w-[95vw]">
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 p-[3px] shadow-2xl">
+      <div className="relative rounded-3xl bg-black/95 p-6">
+        <button
+          onClick={() => setShowNotice(false)}
+          className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-white"
+        >
+          <X size={18} />
+        </button>
+
+        <h3 className="text-xl font-bold text-yellow-300">
+          🚧 Project Status
+        </h3>
+
+        <p className="text-gray-200 mt-2">
+          This project has not been implemented yet.
+        </p>
+      </div>
+    </div>
+  </div>
+)}
       {/* Hero Section - Enhanced with Professional Design */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Enhanced Background */}
